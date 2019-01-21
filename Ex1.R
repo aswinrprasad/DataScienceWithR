@@ -1,3 +1,5 @@
+#class 1
+
 boston.df <- read.csv("BostonHousing.csv",header = TRUE)
 dim(boston.df) #dimension of data frame
 head(boston.df) #first 6 rows
@@ -17,6 +19,9 @@ t(t(names(boston.df))) #print the list in a useful column format(column names)
 plot(boston.df$MEDV~boston.df$LSTAT,xlab="MEDV",ylab="LSTAT") #Scatter plot with axes names
 hist(boston.df$MEDV,xlab="MEDV") #histogram of MEDV
 boxplot(boston.df$MEDV~boston.df$CHAS,xlab="CHAS",ylab="MEDV") #boxplot of MEDV for different values of CHAS
+
+#class 2
+
 set.seed(1) #to get the same parrtitions when re running the R code
 train.rows<-sample(rownames(boston.df),dim(boston.df)[1]*0.6) #partitioning into training 60% and validation 40%
 train.data<-boston.df[train.rows,] #collect all the columns with training row ID into training set
@@ -44,6 +49,11 @@ reg3$coefficients
 args(lm)
 example(lm)
 ?lm
+
+#class 3
+
+library(psych)
+describe(boston.df)
 
 #https://r4ds.had.co.nz/index.html
 
